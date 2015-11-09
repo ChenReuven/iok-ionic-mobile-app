@@ -21,6 +21,7 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       StatusBar.styleDefault();
     }
 
+    // Push Notification
     var push = new Ionic.Push({
       "debug": true,
       "onNotification": function(notification) {
