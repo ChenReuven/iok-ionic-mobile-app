@@ -1,1 +1,6 @@
-{"app_id":"99ac067e","api_key":"0b74960f633f80cca21ed38f0323a0c14ec7158477297843","dev_push":true}
+{
+  "app_id": "99ac067e",
+  "api_key": "0b74960f633f80cca21ed38f0323a0c14ec7158477297843",
+  "dev_push": false,
+  "gcm_key": "310676012946"
+}
