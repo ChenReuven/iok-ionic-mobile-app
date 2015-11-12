@@ -6,7 +6,7 @@
   font-size: 16px;
   background-image: radial-gradient(
     white,
-    #66cc99
+    #66cc99 400%
   );
 }
 
@@ -25,6 +25,7 @@
   flex: 2;
   height: 100%;
   position: relative;
+  padding-top: 20px;
 }
 
 .personal-control {
@@ -39,7 +40,7 @@
   flex-direction: column;
   top: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, .2);
+  background: linear-gradient(to top, rgba(255, 255, 255, .8) 90%,  rgba(255, 255, 255, .2));
 }
 
 .personal-control__update-button {
@@ -52,7 +53,7 @@
 }
 
 .personal-control__close {
-  background: #fff;
+  background: rgba(102,204,153, .1);
   color: #66cc99;
   border-radius: 90px;
   padding: 2px 20px;
@@ -80,6 +81,8 @@
   background: none;
   border: none;
   padding: 0 0 10px 0;
+  color: #049372;
+  height: 40px;
 }
 
 .contact:last-child {
@@ -126,4 +129,17 @@
 
 .splashscreen__slogon {
   margin: -30px;
+}
+
+.global-update-status-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+}
+
+.personal-control__message {
+  margin-bottom: 30px;
 }

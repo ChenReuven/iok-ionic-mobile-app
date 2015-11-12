@@ -33,6 +33,10 @@ function MainCtrl($scope, statusService, contactService, geoLocationService, Sta
     return statusService.requestStatusOfContact(contact.phoneNumbers);
   };
 
+  this.sendStatus = function () {
+    statusService.sendStatus();
+  };
+
   console.log('Main');
 
 }
