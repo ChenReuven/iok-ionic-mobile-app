@@ -1,24 +1,27 @@
 <ion-view view-title="I OK">
   <ion-content>
-    <div class="list-title">Recent Updates</div>
-    <div class="list">
-      <div class="item item-avatar" href="#" ng-click="main.onContactSelected(contact)"
-           ng-repeat="contact in main.contacts | filter: main.contactedHasUpdate | orderBy: '+updatedAt'">
-        <img src="venkman.jpg" class="updated-contact">
-
-        <div class="updated-contact__title">{{contact.displayName}}</div>
-        <div class="updated-contact__event">{{contact.lastDisaster}}</div>
-        <div class="updated-contact__update" am-time-ago="contact.updatedAt"></div>
-      </div>
-    </div>
-    <div>
-      <div>
+    <div class="contact-page">
+      <div class="contact-page__updated-list">
         <div class="list-title">Recent Updates</div>
-        <div class="contacts-list">
-          <contact-list items="main.contacts" on-contact-click="main.onContactSelected(contact)"></contact-list>
+        <div class="list">
+          <div class="item contact" ng-click="main.onContactSelected(contact)"
+               ng-repeat="contact in main.contacts | filter: main.contactedHasUpdate | orderBy: '+updatedAt'">
+            <img src="http://d1oi7t5trwfj5d.cloudfront.net/91/a9/5a2c1503496da25094b88e9eda5f/avatar.jpeg" class="contact__avatar">
+            <div class="contact__title">{{contact.displayName}}</div>
+            <div class="contact__event">last iOK {{contact.lastDisaster}}</div>
+            <div class="contact__update" am-time-ago="contact.updatedAt"></div>
+          </div>
         </div>
       </div>
-      <personal-status-controls ng-if="!main.friendsListInForeground"></personal-status-controls>
+      <div class="contact-page__main-list">
+        <div class="contacts-list">
+          <div class="list-title">Recent Updates</div>
+          <div>
+            <contact-list items="main.contacts" on-contact-click="main.onContactSelected(contact)"></contact-list>
+          </div>
+        </div>
+        <personal-status-controls ng-if="!main.friendsListInForeground"></personal-status-controls>
+      </div>
     </div>
 
   </ion-content>

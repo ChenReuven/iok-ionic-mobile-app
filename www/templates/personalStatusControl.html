@@ -1,5 +1,7 @@
 <div class="personal-control">
-  <div class="personal-control__update-button" ng-click="pscCtrl.updateStatus()"></div>
+  <div ng-click="pscCtrl.updateStatus()" class="personal-control__update-button-wrapper">
+    <img src="../img/roundbutton.svg" class="personal-control__update-button">
+  </div>
   <div class="personal-control__message" ng-if="pscCtrl.message">{{pscCtrl.message}}</div>
   <div class="personal-control__close" ng-click="pscCtrl.close()">See friends list</div>
 </div>

@@ -1,11 +1,6 @@
 <div class="list">
-  <div ng-repeat="item in items">
-    <a class="item item-avatar" href="#" ng-click="onContactClick({contact: item})">
-      <img src="test.png">
-
-      <h2>{{ item.displayName }}</h2>
-    </a>
+  <div ng-repeat="item in items" class="item contact" ng-click="onContactClick({contact: item})">
+    <img src="http://d1oi7t5trwfj5d.cloudfront.net/91/a9/5a2c1503496da25094b88e9eda5f/avatar.jpeg" class="contact__avatar">
+    <div class="contact__title">{{item.displayName}}</div>
   </div>
-
-
 </div>

@@ -3,13 +3,28 @@
 }
 
 .pane {
+  font-size: 16px;
   background-image: radial-gradient(
     white,
     #66cc99
   );
 }
 
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 30px;
+}
+
 .contacts-list {
+  padding: 0 30px;
+}
+
+.contact-page__main-list {
+  flex: 2;
+  height: 100%;
+  position: relative;
 }
 
 .personal-control {
@@ -24,27 +39,77 @@
   flex-direction: column;
   top: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(255, 255, 255, .2);
 }
 
 .personal-control__update-button {
-  width: 100px;
-  height: 100px;
-  background: red;
+  width: 400px;
+  height: 400px;
 }
 
-.contacts-with-status-list {
-  height: 216px;
+.personal-control__update-button-wrapper {
+  height: 340px;
+}
+
+.personal-control__close {
+  background: #fff;
+  color: #66cc99;
+  border-radius: 90px;
+  padding: 2px 20px;
+  font-size: 18px;
+}
+
+.contact-page__updated-list {
+  max-height: 216px;
   overflow-y: hidden;
+  margin-bottom: 10px;
+  padding: 0 30px;
 }
 
 .list-title {
-  border-radius: 90px;
   background-color: #049372;
   color: #fff;
-  padding: 2px 10px;
+  border-radius: 90px;
+  padding: 2px 20px;
   display: inline-block;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.contact {
+  background: none;
+  border: none;
+  padding: 0 0 10px 0;
+}
+
+.contact:last-child {
+  padding-bottom: 0;
+}
+
+.contact__avatar {
+  border-radius: 90px;
+  width: 30px;
+  height: 30px;
+}
+
+.contact__title {
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+}
+
+.contact__event {
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+.contact__update {
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .splashscreen {
