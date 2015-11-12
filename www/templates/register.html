@@ -1,20 +1,29 @@
 <ion-view view-title="I OK">
-  <ion-content class="padding">
+  <ion-content>
 
-    <div class="list">
-      <div>
-        <select ng-model="register.phoneAreaCode">
-          <option value="{{ phoneAreaCode }}" ng-repeat="phoneAreaCode in register.phonesAreaCode">
-            {{ phoneAreaCode }}
-          </option>
-        </select>
-        <input ng-model="register.phoneNumber" type="text" placeholder="Insert Your Phone Number">
+    <div class="center-view-container">
+      <div class="list">
+        <div>
+          <img class="register__logo" src="img/positive.svg">
+        </div>
+        <div>
+          <img src="img/avatar.svg">
+        </div>
+
+        <div>
+          <select class="box-inline" ng-model="register.phoneAreaCode">
+            <option value="{{ phoneAreaCode }}" ng-repeat="phoneAreaCode in register.phonesAreaCode">
+              {{ phoneAreaCode }}
+            </option>
+          </select>
+          <input class="box-inline" ng-model="register.phoneNumber" type="text" placeholder="Insert Phone Number">
+        </div>
+
+        <div class="padding">
+          <button ng-click="register.submitNumber()" class="btn btn__set">Set</button>
+        </div>
+
       </div>
-
-      <div class="padding">
-        <button ng-click="register.submitNumber()" class="button button-block button-positive">Submit</button>
-      </div>
-
     </div>
 
   </ion-content>

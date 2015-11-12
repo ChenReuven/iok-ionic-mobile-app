@@ -19,6 +19,7 @@ function SplashScreenCtrl($state, storageService, $timeout) {
 
   }
 
+  $state.go('register');
   //showSplashScreen();
 
 }
