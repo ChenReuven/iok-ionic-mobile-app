@@ -47,12 +47,6 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
         controller: 'MainCtrl as main'
       });
 
-    $urlRouterProvider.otherwise('/splashscreen'); // TODO: for testing
-    var userPhoneNumber = storageServiceProvider.get('user.phone-num');
-    /* if (!userPhoneNumber) {
-     $urlRouterProvider.otherwise('/register');
-    } else {
-      $urlRouterProvider.otherwise('/main');
-     }*/
+    $urlRouterProvider.otherwise('/splashscreen');
 
   });
