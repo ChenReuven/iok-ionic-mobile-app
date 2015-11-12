@@ -1,11 +1,20 @@
-function SplashCtrl(statusService, storageService, $state, contactService) {
+function SplashCtrl(statusService, storageService, $state, contactService, geoLocationService) {
 
   var vm = this;
   var PHONE_STORAGE_KEY = 'user.phone-num';
   var DEFAULT_AREA_CODE = '972';
+  var PHONE_GEOLOCATION_LAT_KEY = 'user.geolocation-lang';
+  var PHONE_GEOLOCATION_LONG_KEY = 'user.geolocation-long';
 
   vm.phonesAreaCode = contactService.getPhonesAreaCode();
   vm.phoneAreaCode = DEFAULT_AREA_CODE;
+
+
+  geoLocationService.getCurrentLocation()
+    .then(function (position) {
+      storageService.set(PHONE_GEOLOCATION_LAT_KEY, position.coords.latitude);
+      storageService.set(PHONE_GEOLOCATION_LONG_KEY, position.coords.longitude);
+    });
 
   vm.submitNumber = function () {
     if (vm.phoneNumber && vm.phoneNumber !== '') {
@@ -21,6 +30,6 @@ function SplashCtrl(statusService, storageService, $state, contactService) {
 
 }
 
-SplashCtrl.$inject = ['statusService', 'storageService', '$state', 'contactService'];
+SplashCtrl.$inject = ['statusService', 'storageService', '$state', 'contactService', 'geoLocationService'];
 
 angular.module('iok').controller('SplashCtrl', SplashCtrl);
