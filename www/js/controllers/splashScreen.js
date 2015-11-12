@@ -2,18 +2,24 @@ function SplashScreenCtrl($state, storageService, $timeout) {
 
   var splashScreenTimeToShow = 2000;
 
-  $timeout(function () {
-    var userPhoneNumber = storageService.get('user.phone-num');
+  function showSplashScreen() {
 
-    // TODO: for test ONLY
-    //$state.go('register');
+    $timeout(function () {
+      var userPhoneNumber = storageService.get('user.phone-num');
 
-    if (!userPhoneNumber) {
-      $state.go('register');
-    } else {
-      $state.go('main');
-    }
-  }, splashScreenTimeToShow);
+      // TODO: for test ONLY
+      //$state.go('register');
+
+      if (!userPhoneNumber) {
+        $state.go('register');
+      } else {
+        $state.go('main');
+      }
+    }, splashScreenTimeToShow);
+
+  }
+
+  //showSplashScreen();
 
 }
 
