@@ -1,17 +1,13 @@
-function MainCtrl(utilsService, statusService, contactService) {
+function MainCtrl(statusService, contactService) {
 
   var vm = this;
 
   contactService.getAllContacts()
-    .then(function (allContacts) {
+    .then(function (contacts) {
 
-      var contacts = utilsService.getContactsWithPhones(allContacts);
-      console.log("Contacts = ", contacts);
-      vm.contacts = contacts;
 
     }, function (err) {
-      console.error(err);
-      $scope.contactsError = err;
+
     });
 
 
@@ -20,6 +16,6 @@ function MainCtrl(utilsService, statusService, contactService) {
 
 }
 
-MainCtrl.$inject = ['utilsService', 'statusService', 'contactService'];
+MainCtrl.$inject = ['statusService', 'contactService'];
 
 angular.module('iok').controller('MainCtrl', MainCtrl);
