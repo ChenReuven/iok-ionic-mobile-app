@@ -4,14 +4,11 @@ function MainCtrl(statusService, contactService) {
 
   contactService.getAllContacts()
     .then(function (contacts) {
-
+      vm.contacts = contacts;
 
     }, function (err) {
 
     });
-
-
-  console.log('Main');
 
 
 }

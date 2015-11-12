@@ -1,6 +1,6 @@
 function StatusService(apiService, storageService) {
-  var PHONE_STORAGE_KEY = 'user.phone';
-  var userPhoneNumber = storageService.get(PHONE_STORAGE_KEY);
+  var PHONE_STORAGE_KEY = 'user.phone-num';
+  var userPhoneNumber = '05456793984';//storageService.get(PHONE_STORAGE_KEY);
   var PUSH_TOKEN = 'cuwYRQ_Z7oE:APA91bEn6EN45siqmuAw-jpbZ8bIFr-AtBAKW1n0mWu31-lG8YG3GZ-gjv4OWcDjU8gFO-ldDHVg-qWSi8BazvKCVO6kgGp_9xBalLjInpIz9vqbEVnHVFRECfZViWhOVbxuuRuY41pD';
 
   this.createStatusData = function () {

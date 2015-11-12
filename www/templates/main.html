@@ -1,7 +1,13 @@
 <ion-view view-title="I OK">
   <ion-content class="padding">
 
-    <div>Hello World</div>
+    <div class="list">
+      <a class="item item-avatar" href="#" ng-repeat="contact in main.contacts | filter | orderBy: '+updatedAt'">
+        <img src="venkman.jpg">
+
+        <h2>{{contact.displayName}}</h2>
+      </a>
+    </div>
 
 
   </ion-content>
