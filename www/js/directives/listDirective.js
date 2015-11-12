@@ -3,14 +3,11 @@ angular.module('iok').directive('contactList', ['$filter', function ($filter) {
     restrict: 'AE',
     templateUrl: 'templates/listTemplate.html',
     scope: {
-      items: '='
+      items: '=',
+      onContactClick: '&'
     },
     link: function (scope, iElement, iAttrs) {
 
-      var onAskContactStatus = function (item) {
-        var formatPhoneNumber = $filter('phoneFormatter')(item.phoneNumbers);
-        // TODO: need to add service for apply status of the contact
-      }
     }
   }
 }]);

@@ -19,7 +19,7 @@ angular.module('iok')
         nickname: null,
         note: "",
         organizations: null,
-        phoneNumbers: "972524763712",
+        phoneNumbers: "0524277552",
         photos: null,
         rawId: "1660",
         urls: null
@@ -38,7 +38,7 @@ angular.module('iok')
         nickname: null,
         note: "",
         organizations: null,
-        phoneNumbers: "972524763712",
+        phoneNumbers: "0545679384",
         photos: null,
         rawId: "2",
         urls: null

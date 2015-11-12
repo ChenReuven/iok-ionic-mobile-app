@@ -2,17 +2,18 @@
   <ion-content class="padding">
 
     <div class="list">
-      <a class="item item-avatar" href="#" ng-repeat="contact in main.contacts | filter | orderBy: '+updatedAt'">
-        <img src="venkman.jpg">
+      <div class="item item-avatar" href="#" ng-click="main.onContactSelected(contact)" ng-repeat="contact in main.contacts | filter: main.contactedHasUpdate | orderBy: '+updatedAt'">
+        <img src="venkman.jpg" class="updated-contact">
 
-        <h2>{{contact.displayName}}</h2>
-      </a>
+        <div class="updated-contact__title">{{contact.displayName}}</div>
+        <div class="updated-contact__event">{{contact.lastDisaster}}</div>
+        <div class="updated-contact__update" am-time-ago="contact.updatedAt"></div>
+      </div>
     </div>
-
-    <contact-list items="main.contacts">
-
-    </contact-list>
-
+    <div class="contacts-list">
+      <contact-list items="main.contacts"></contact-list>
+      <personal-status-controls ng-if="!main.friendsListInForeground"></personal-status-controls>
+    </div>
 
   </ion-content>
 </ion-view>
