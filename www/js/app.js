@@ -31,10 +31,10 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
     $stateProvider
 
       // setup an abstract state for the tabs directive
-      .state('splash', {
-        url: '/splash',
-        templateUrl: "templates/splash.html",
-        controller: 'SplashCtrl as splash'
+      .state('register', {
+        url: '/register',
+        templateUrl: "templates/register.html",
+        controller: 'RegisterCtrl as register'
       })
       .state('main', {
         url: '/main',
@@ -42,12 +42,12 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
         controller: 'MainCtrl as main'
       });
 
-    //$urlRouterProvider.otherwise('/splash'); // TODO: for testing
+    $urlRouterProvider.otherwise('/register'); // TODO: for testing
     var userPhoneNumber = storageServiceProvider.get('user.phone-num');
-    if (!userPhoneNumber) {
-      $urlRouterProvider.otherwise('/splash');
+    /* if (!userPhoneNumber) {
+     $urlRouterProvider.otherwise('/register');
     } else {
       $urlRouterProvider.otherwise('/main');
-    }
+     }*/
 
   });
