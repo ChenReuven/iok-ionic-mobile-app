@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="contacts-list">
-      <contact-list items="main.contacts"></contact-list>
+      <contact-list items="main.contacts" on-contact-click="main.onContactSelected(contact)"></contact-list>
       <personal-status-controls ng-if="!main.friendsListInForeground"></personal-status-controls>
     </div>
 
