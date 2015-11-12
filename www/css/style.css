@@ -117,10 +117,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  height: 100%;
 }
 
-.splashscreen__logo {
-  margin-top: 35%;
+.splashscreen__image {
+  width: 250px;
 }
 
 .splashscreen__slogon {
