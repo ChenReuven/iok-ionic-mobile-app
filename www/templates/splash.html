@@ -1,0 +1,21 @@
+<ion-view view-title="I OK">
+  <ion-content class="padding">
+
+    <div class="list">
+      <div>
+        <select ng-model="splash.phoneAreaCode">
+          <option value="{{ phoneAreaCode }}" ng-repeat="phoneAreaCode in splash.phonesAreaCode">
+            {{ phoneAreaCode }}
+          </option>
+        </select>
+        <input ng-model="splash.phoneNumber" type="text" placeholder="Insert Your Phone Number">
+      </div>
+
+      <div class="padding">
+        <button ng-click="splash.submitNumber()" class="button button-block button-positive">Submit</button>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

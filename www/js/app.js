@@ -26,7 +26,7 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova'])
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, storageServiceProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -35,13 +35,24 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova'])
     $stateProvider
 
       // setup an abstract state for the tabs directive
+      .state('splash', {
+        url: '/splash',
+        templateUrl: "templates/splash.html",
+        controller: 'SplashCtrl as splash'
+      })
       .state('main', {
         url: '/main',
-        templateUrl: 'templates/main.html',
+        templateUrl: "templates/main.html",
         controller:'MainCtrl as main'
       });
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/main');
+
+    //$urlRouterProvider.otherwise('/splash'); // TODO: for testing
+    var userPhoneNumber = storageServiceProvider.get('userPhoneNumber');
+    if (userPhoneNumber) {
+      $urlRouterProvider.otherwise('/splash');
+    } else {
+      $urlRouterProvider.otherwise('/main');
+    }
 
   });

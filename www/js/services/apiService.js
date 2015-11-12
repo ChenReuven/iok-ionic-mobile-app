@@ -1,6 +1,6 @@
 function ApiService($http) {
   this.sendStatus = function (statusData) {
-    var BASE_URL = 'http://52.19.178.116/';
+    var BASE_URL = 'http://52.19.178.116';
     var request = JSON.stringify(statusData);
     return $http.put(BASE_URL + '/api/iok', request);
   };

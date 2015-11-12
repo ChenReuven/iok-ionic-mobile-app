@@ -23,8 +23,13 @@ angular.module('iok')
 
     }
 
+    function getPhonesAreaCode() {
+      return ['972', '352', '444', '827', '542', '234', '554', '563', '124', '545', '445'];
+    }
+
     return {
-      getAllContacts: getAllContacts
+      getAllContacts: getAllContacts,
+      getPhonesAreaCode: getPhonesAreaCode
     }
 
   }]);
