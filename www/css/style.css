@@ -112,10 +112,17 @@
   vertical-align: top;
 }
 
-.splashscreen {
+.center-view-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.splashscreen__avatar {
+.splashscreen__logo {
+  margin-top: 35%;
+}
 
+.splashscreen__slogon {
+  margin: -30px;
 }
