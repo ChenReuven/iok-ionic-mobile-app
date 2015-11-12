@@ -84,8 +84,8 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova'])
       // setup an abstract state for the tabs directive
       .state('main', {
         url: '/main',
-        abstract: true,
-        templateUrl: 'templates/main.html'
+        templateUrl: 'templates/main.html',
+        controller:'MainCtrl as main'
       });
 
     // if none of the above states are matched, use this as the fallback
