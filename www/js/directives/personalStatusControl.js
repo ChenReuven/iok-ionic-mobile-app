@@ -32,7 +32,7 @@ function PersonalStatusControls() {
     restrict: 'E',
     controller: PersonalStatusControlsCtrl,
     controllerAs: 'pscCtrl',
-    templateUrl: '../templates/personalStatusControl.html'
+    templateUrl: 'templates/personalStatusControl.html'
   }
 }
 
