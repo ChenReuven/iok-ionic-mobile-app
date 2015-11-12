@@ -44,7 +44,7 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
 
     //$urlRouterProvider.otherwise('/splash'); // TODO: for testing
     var userPhoneNumber = storageServiceProvider.get('user.phone-num');
-    if (userPhoneNumber) {
+    if (!userPhoneNumber) {
       $urlRouterProvider.otherwise('/splash');
     } else {
       $urlRouterProvider.otherwise('/main');

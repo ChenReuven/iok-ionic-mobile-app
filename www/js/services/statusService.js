@@ -15,11 +15,12 @@ function StatusService(apiService, storageService, $filter) {
 
   this.createStatusData = function () {
     var position = getGeoLocationFromLocal();
+    var formatPhoneNumber = $filter('phoneFormatter')(storageService.get('user.phone-num'));
     return {
-      "phoneNumber": $filter('phoneFormatter')(storageService.get('user.phone-num')),
+      "phoneNumber": formatPhoneNumber,
       "device": "ANDROID",
       "pushToken": PUSH_TOKEN,
-      "location": {"lat": position.latitude, "log": position.longtitude},
+      "location": {"lat": +position.latitude, "log": +position.longtitude},
       "message": ""
     };
   };
