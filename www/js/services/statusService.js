@@ -8,7 +8,7 @@ function StatusService(apiService, storageService) {
       "phoneNumber": userPhoneNumber,
       "device": "Android",
       "pushToken": PUSH_TOKEN,
-      //"location": {"lat": 31.75535435543435, "log": -4.9766574654343},
+      "location": {"lat": 31.75535435543435, "log": -4.9766574654343},
       "message": ""
     };
   };

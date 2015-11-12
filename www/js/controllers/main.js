@@ -1,5 +1,5 @@
 function MainCtrl(statusService) {
-  console.log('Main');
+  statusService.sendStatus();
 }
 
 MainCtrl.$inject = ['statusService'];
