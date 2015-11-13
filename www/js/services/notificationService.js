@@ -25,6 +25,7 @@ function NotificationService($rootScope) {
       }
     });
 
+    /*
     var user = Ionic.User.current();
 
     var callback = function (pushToken) {
@@ -34,9 +35,9 @@ function NotificationService($rootScope) {
     }
 
     push.register(callback);
+     */
 
-
-    /*  // kick off the platform web client
+    // kick off the platform web client
      Ionic.io();
 
      // this will give you a fresh user or the previously saved 'current user'
@@ -49,13 +50,13 @@ function NotificationService($rootScope) {
      }
 
      //persist the user
-     user.save();*/
+    //user.save();
 
     // Push Notification
 
-    /*push.register(function(token) {
+    push.register(function (token) {
      console.log("Device token:",token.token);
-     });*/
+    });
 
   }
 

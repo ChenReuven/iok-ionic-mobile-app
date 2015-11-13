@@ -1,7 +1,7 @@
 function StatusService(apiService, storageService, $filter) {
   var PHONE_STORAGE_KEY = 'user.phone-num';
   //var userPhoneNumber = '05456793984';//storageService.get(PHONE_STORAGE_KEY);
-  var PUSH_TOKEN = 'cuwYRQ_Z7oE:APA91bEn6EN45siqmuAw-jpbZ8bIFr-AtBAKW1n0mWu31-lG8YG3GZ-gjv4OWcDjU8gFO-ldDHVg-qWSi8BazvKCVO6kgGp_9xBalLjInpIz9vqbEVnHVFRECfZViWhOVbxuuRuY41pD';
+  var PUSH_TOKEN = 'd2gobv25Ruc:APA91bGwYOOwyHBwgdvxyeCebenGBd5-xskrbd34GudGBvKKbnU_Lln9Ny85vtPXWqLc6bg5FEqbdJdZuIB5jz_-pW_tdW6013ZQlYzVyTFJD_vJshcaRN5wYuX8OvVKgOak4SM-BFY0';
   var PHONE_GEOLOCATION_LAT_KEY = 'user.geolocation-lang';
   var PHONE_GEOLOCATION_LONG_KEY = 'user.geolocation-long';
 
@@ -20,7 +20,7 @@ function StatusService(apiService, storageService, $filter) {
       "phoneNumber": formatPhoneNumber,
       "device": "ANDROID",
       "pushToken": PUSH_TOKEN,
-      "location": {"lat": +position.latitude, "log": +position.longtitude},
+      "location": {"lat": +position.longtitude, "log": +position.latitude},
       "message": ""
     };
   };
