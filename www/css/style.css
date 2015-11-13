@@ -247,3 +247,11 @@ select {
     opacity: 0.0;
   }
 }
+
+.splashscreen__loader {
+  margin-top: 40px;
+}
+
+.splashscreen__loader--icon {
+  width: 25px;
+}
