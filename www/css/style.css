@@ -96,6 +96,7 @@ select {
   border-radius: 90px;
   padding: 4px 20px;
   font-size: 18px;
+  margin-left: 2px;
 }
 
 .contact-page__updated-list {
@@ -109,7 +110,7 @@ select {
   background-color: #049372;
   color: #fff;
   border-radius: 90px;
-  padding: 2px 20px;
+  padding: 2px 20px 3px 20px;
   display: inline-block;
   margin-bottom: 14px;
   text-align: center;
@@ -191,6 +192,7 @@ select {
 
 .splashscreen__slogon {
   margin: -30px;
+  color: #049372;
 }
 
 .global-update-status-button {
@@ -212,6 +214,8 @@ select {
 
 .register__logo {
   width: 55px;
+  margin-bottom: 6px;
+  margin-left: 4px;
 }
 
 .box-inline, input.box-inline {
@@ -262,9 +266,10 @@ select {
 
 .register__avatar {
   opacity: .7;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .register__button {
-  margin-top: 5px;
+  margin-top: 11px;
+  padding-top: 3px;
 }
