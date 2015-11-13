@@ -1,6 +1,7 @@
 angular.module('iok')
-  .factory('contactService', ['$q', /*'$cordovaContacts',*/'contactDummyPhonesService', 'statusService','$filter', function ($q, $cordovaContacts, statusService, $filter) {
+  .factory('contactService', ['$q', '$cordovaContacts', /* 'contactDummyPhonesService', */'statusService', '$filter', function ($q, $cordovaContacts, statusService, $filter) {
     var contactsList;
+    var fullFilterContactList;
     var options = {
       hasPhoneNumber: true
     };
@@ -37,11 +38,33 @@ angular.module('iok')
       return contactsList;
     }
 
-    function getAllContacts() {
+    function saveContacts(contacts) {
+      var d = $q.defer();
+      fullFilterContactList = contacts;
+      d.resolve(contacts);
+      return d.promise;
+    }
+
+    function getAllContactsAsync() {
       return $cordovaContacts.find(options)
         .then(filterContactsWithPhones)
         .then(updateContactsStatuses)
-        .then(updateContactsWithLatestStatus);
+        .then(updateContactsWithLatestStatus)
+        .then(saveContacts);
+    }
+
+    function getAllContactLocal() {
+      var d = $q.defer();
+      d.resolve(fullFilterContactList)
+      return d.promise;
+    }
+
+    function getAllContacts() {
+      if (fullFilterContactList) {
+        return getAllContactLocal();
+      } else {
+        return getAllContactsAsync()
+      }
     }
 
     function getPhonesAreaCode() {

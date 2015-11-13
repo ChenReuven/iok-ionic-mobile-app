@@ -27,6 +27,7 @@ angular.module('iok')
         function (position) {
           console.log('Success Finally: ', position);
           d.resolve(position);
+          watch.clearWatch();
         });
 
       return d.promise;
