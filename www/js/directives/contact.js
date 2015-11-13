@@ -6,7 +6,7 @@ function ContactDirective($timeout) {
       onClick: '&',
       withUpdates: '@'
     },
-    templateUrl: '/templates/contact.html',
+    templateUrl: 'templates/contact.html',
     link: function ($scope, $element) {
       $scope.onContactSelected = function () {
         $scope.onClick({contact: $scope.model});
