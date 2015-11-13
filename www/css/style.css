@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Gadugi';
+  src: url('gadugi.ttf') format('truetype');
+}
+
 select, input {
   border-radius: 5px;
   background: rgba(102, 204, 153, 0.2);
@@ -26,6 +31,7 @@ select {
 }
 
 .pane {
+  font-family: 'Gadugi', sans-serif;
   font-size: 16px;
   background-image: radial-gradient(
     white,
@@ -63,7 +69,7 @@ select {
   flex-direction: column;
   top: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, .8) 90%,  rgba(255, 255, 255, .2));
+  background: linear-gradient(to top, rgba(255, 255, 255, .8) 90%, rgba(255, 255, 255, .2));
 }
 
 .personal-control__update-button {
@@ -76,7 +82,7 @@ select {
 }
 
 .personal-control__close {
-  background: rgba(102,204,153, .1);
+  background: rgba(102, 204, 153, .1);
   color: #66cc99;
   border-radius: 90px;
   padding: 2px 20px;
