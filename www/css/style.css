@@ -190,7 +190,10 @@ select {
 }
 
 .personal-control__message {
-  margin-bottom: 30px;
+}
+
+.personal-control__message-container{
+  height: 60px;
 }
 
 .register__logo {
