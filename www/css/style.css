@@ -49,6 +49,12 @@ select {
 
 .contacts-list {
   padding: 0 30px;
+
+}
+
+.contacts-list__items {
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .contact-page__main-list {
@@ -112,7 +118,7 @@ select {
   border: none;
   padding: 0 0 10px 0;
   color: #049372;
-  height: 40px;
+  height: 30px;
 }
 
 .contact:last-child {
@@ -192,7 +198,7 @@ select {
 .personal-control__message {
 }
 
-.personal-control__message-container{
+.personal-control__message-container {
   height: 60px;
 }
 
@@ -203,4 +209,37 @@ select {
 .box-inline, input.box-inline {
   display: inline-block;
   vertical-align: inherit;
+}
+
+.contact__action-status {
+  float: right;
+  margin: 6px 6px;
+}
+
+.contact__action-status-icon {
+
+}
+
+.contact__action-status-icon--active {
+  border: 3px solid #999;
+  -webkit-border-radius: 30px;
+  height: 18px;
+  width: 18px;
+  opacity: 0.0;
+  -webkit-animation: pulsate 1.2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(1.4, 1.4);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    -webkit-transform: scale(0.0, 0.0);
+    opacity: 0.0;
+  }
 }

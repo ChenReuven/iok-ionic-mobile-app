@@ -1,5 +1,5 @@
 <div class="list">
-  <div ng-repeat="item in items" class="item contact" ng-click="onContactClick({contact: item})">
+  <div ng-repeat="item in items track by item.phoneNumbers" class="item contact" ng-click="onContactClick({contact: item})">
     <div class="contact__avatar">
       <img src="{{ item.photos[0].value }}" ng-if="item.photos.length > 0" class="contact__avatar-image">
       <img src="img/avatar.svg"  class="contact__default-image">

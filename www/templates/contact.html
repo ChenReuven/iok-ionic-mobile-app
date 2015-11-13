@@ -1,0 +1,12 @@
+<div class="item contact" ng-click="onContactSelected()">
+  <div class="contact__avatar">
+    <img src="{{ model.photos[0].value }}" ng-if="model.photos.length > 0" class="contact__avatar-image">
+    <img src="img/avatar.svg" class="contact__default-image">
+  </div>
+  <div class="contact__title">{{model.displayName}}</div>
+  <div class="contact__event" ng-if="withUpdates">last iOK {{model.lastDisaster}}</div>
+  <div class="contact__update" ng-if="withUpdates" am-time-ago="model.updatedAt"></div>
+  <div class="contact__action-status">
+    <div class="contact__action-status-icon" ng-class="{'contact__action-status-icon--active':animate}"></div>
+  </div>
+</div>
