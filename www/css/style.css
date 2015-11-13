@@ -118,11 +118,15 @@ select {
   border: none;
   padding: 0 0 10px 0;
   color: #049372;
-  height: 30px;
+  height: 40px;
 }
 
-.contact:last-child {
-  padding-bottom: 0;
+.contact-list__item {
+  margin-bottom: 5px;
+}
+
+.contact-list__item:last-child {
+  margin-bottom: 0;
 }
 
 .contact__avatar {

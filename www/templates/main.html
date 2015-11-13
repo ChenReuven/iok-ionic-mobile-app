@@ -4,7 +4,7 @@
       <div class="contact-page__updated-list">
         <div class="list-title">Recent Updates</div>
         <div class="list">
-          <contact model="contact" with-updates="true" on-click="main.onContactSelected(contact)"
+          <contact model="contact" class="contact-list__item" with-updates="true" on-click="main.onContactSelected(contact)"
                    ng-repeat="contact in main.contacts | filter: main.contactedHasUpdate | orderBy: '+updatedAt'"></contact>
         </div>
       </div>
@@ -12,7 +12,7 @@
         <div class="contacts-list">
           <div class="list-title">Contacts</div>
           <div class="contacts-list__items">
-            <contact model="contact" on-click="main.onContactSelected(contact)"
+            <contact model="contact" class="contact-list__item" on-click="main.onContactSelected(contact)"
                      ng-repeat="contact in main.contacts"></contact>
           </div>
         </div>
