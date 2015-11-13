@@ -80,19 +80,19 @@ select {
 }
 
 .personal-control__update-button {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 }
 
 .personal-control__update-button-wrapper {
-  height: 340px;
+  height: 248px;
 }
 
 .personal-control__close {
   background: rgba(102, 204, 153, .1);
   color: #66cc99;
   border-radius: 90px;
-  padding: 2px 20px;
+  padding: 4px 20px;
   font-size: 18px;
 }
 
@@ -203,7 +203,8 @@ select {
 }
 
 .personal-control__message-container {
-  height: 60px;
+  height: 20px;
+  margin-bottom: 22px;
 }
 
 .register__logo {

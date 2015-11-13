@@ -66,18 +66,18 @@ angular.module('iok')
           addresses: null,
           birthday: null,
           categories: null,
-          displayName: "Ron",
+          displayName: "Ran",
           emails: null,
           id: "3",
           ims: null,
           name: {
-            formatted: "Ron L",
-            givenName: "ron m"
+            formatted: "Ran L",
+            givenName: "Ran m"
           },
           nickname: null,
           note: "",
           organizations: null,
-          phoneNumbers: "97252475376",
+          phoneNumbers: "0528431108",
           photos: null,
           rawId: "3",
           urls: null
