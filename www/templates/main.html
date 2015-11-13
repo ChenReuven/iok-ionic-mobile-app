@@ -4,7 +4,8 @@
       <div class="contact-page__updated-list">
         <div class="list-title">Recent Updates</div>
         <div class="list">
-          <contact model="contact" class="contact-list__item" with-updates="true" on-click="main.onContactSelected(contact)"
+          <contact model="contact" class="contact-list__item" with-updates="true"
+                   on-click="main.onContactSelected(contact)"
                    ng-repeat="contact in main.contacts | filter: main.contactedHasUpdate | orderBy: '+updatedAt'"></contact>
         </div>
       </div>
@@ -12,8 +13,10 @@
         <div class="contacts-list">
           <div class="list-title">Contacts</div>
           <div class="contacts-list__items">
-            <contact model="contact" class="contact-list__item" on-click="main.onContactSelected(contact)"
-                     ng-repeat="contact in main.contacts"></contact>
+            <ion-scroll zooming="true" direction="y" style="width: 100%; height: 600px">
+              <contact model="contact" class="contact-list__item" on-click="main.onContactSelected(contact)"
+                       ng-repeat="contact in main.contacts"></contact>
+            </ion-scroll>
           </div>
         </div>
         <personal-status-controls ng-if="!main.friendsListInForeground"></personal-status-controls>
