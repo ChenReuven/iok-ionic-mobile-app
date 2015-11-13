@@ -123,6 +123,25 @@ select {
   border-radius: 90px;
   width: 30px;
   height: 30px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.contact__avatar-image {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.contact__default-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: -6px;
+  margin-top: -6px;
 }
 
 .contact__title {
