@@ -25,6 +25,8 @@ select {
 .btn__set {
   width: 30%;
   height: 28px;
+  border-radius: 90px;
+  padding-top: 3px;
 }
 
 .scroll {
@@ -184,6 +186,7 @@ select {
 
 .splashscreen__image {
   width: 250px;
+  opacity: .7;
 }
 
 .splashscreen__slogon {
@@ -255,4 +258,13 @@ select {
 
 .splashscreen__loader--icon {
   width: 25px;
+}
+
+.register__avatar {
+  opacity: .7;
+  margin-bottom: 5px;
+}
+
+.register__button {
+  margin-top: 5px;
 }
