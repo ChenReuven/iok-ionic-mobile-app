@@ -7,6 +7,7 @@ select, input {
   border-radius: 5px;
   background: rgba(102, 204, 153, 0.2);
   height: 25px;
+  text-align: center;
 }
 
 select {

@@ -7,10 +7,13 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMoment'])
 
-  .run(function ($ionicPlatform, notificationService) {
+  .run(function ($ionicPlatform, notificationService, $cordovaSplashscreen) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
+
+      $cordovaSplashscreen.hide();
+
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
