@@ -8,6 +8,25 @@ angular.module('iok')
         addresses: null,
         birthday: null,
         categories: null,
+        displayName: "Dima",
+        emails: null,
+        id: "1",
+        ims: null,
+        name: {
+          formatted: "Dima Goltsman",
+          givenName: "Dima"
+        },
+        nickname: null,
+        note: "",
+        organizations: null,
+        phoneNumbers: "0524277551",
+        photos: null,
+        rawId: "1660",
+        urls: null
+      },{
+        addresses: null,
+        birthday: null,
+        categories: null,
         displayName: "Chen",
         emails: null,
         id: "1",
