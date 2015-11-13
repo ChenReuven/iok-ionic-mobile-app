@@ -12,7 +12,7 @@ select, input {
 
 select {
   border: none;
-  height: 33px;
+  height: 34px;
 }
 
 .btn {
@@ -199,4 +199,5 @@ select {
 
 .box-inline, input.box-inline {
   display: inline-block;
+  vertical-align: inherit;
 }

@@ -12,7 +12,7 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
 
-      $cordovaSplashscreen.hide();
+      //$cordovaSplashscreen.hide();
 
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -23,6 +23,11 @@ angular.module('iok', ['ionic', 'ionic.service.core', 'ngCordova', 'angularMomen
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
+      // Handling Back Button
+      $ionicPlatform.registerBackButtonAction(function () {
+        event.preventDefault();
+      }, 100);
 
       notificationService.handleNotifications();
 
