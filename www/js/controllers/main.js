@@ -2,15 +2,27 @@ function MainCtrl($scope, $q, statusService, contactService, geoLocationService,
 
   var vm = this;
   vm.friendsListInForeground = false;
-  var geoLoactionPromise,
+  var geoLoactionPromise = $q.defer(),
+    geo,
     contactServicePromise;
 
   if (!isGeoLocationExist()) {
-    geoLoactionPromise = geoLocationService.getCurrentLocation();
+    geo = geoLocationService.getCurrentLocation();
   }
-  contactSerivcePromise = contactService.getAllContacts();
+  else {
+    geoLoactionPromise.resolve({
+      coords: {
+        latitude: storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY),
+        longitude: storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY)
+      }
+    })
+    geo = geoLoactionPromise.promise;
+  }
+  contactServicePromise = contactService.getAllContacts();
 
-  $q.all([geoLoactionPromise, contactServicePromise]).then(function (position, contacts) {
+  $q.all([geo, contactServicePromise]).then(function (values) {
+    var position = values[0];
+    var contacts = values[1];
     storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY, position.coords.latitude);
     storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY, position.coords.longitude);
 
@@ -27,7 +39,7 @@ function MainCtrl($scope, $q, statusService, contactService, geoLocationService,
   };
 
   this.onContactSelected = function (contact) {
-    return statusService.requestStatusOfContact(contact.phoneNumbers);
+    return statusService.requestStatusOfContact(contact.phoneNumbers && contact.phoneNumbers > 0 ? contact.phoneNumbers[0] : '');
   };
 
   this.sendStatus = function () {
@@ -35,7 +47,7 @@ function MainCtrl($scope, $q, statusService, contactService, geoLocationService,
   };
 
   function isGeoLocationExist() {
-    return storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY) && storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY);
+    return storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY) && storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY);
   }
 
 }

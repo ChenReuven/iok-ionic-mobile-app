@@ -1,5 +1,5 @@
 angular.module('iok')
-  .factory('contactService', ['$q', /*'$cordovaContacts',*/ 'contactDummyPhonesService','statusService', '$filter', function ($q, $cordovaContacts, statusService, $filter) {
+  .factory('contactService', ['$q', '$cordovaContacts', /* 'contactDummyPhonesService',*/'statusService', '$filter', function ($q, $cordovaContacts, statusService, $filter) {
     var contactsList;
     var fullFilterContactList;
     var options = {

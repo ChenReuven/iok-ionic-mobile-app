@@ -1,6 +1,7 @@
 <div class="item contact" ng-click="onContactSelected()">
   <div class="contact__avatar">
-    <img src="{{ model.photos[0].value }}" ng-if="model.photos.length > 0" class="contact__avatar-image">
+    <img src="{{ photos && photos.length > 0 ? model.photos[0].value : '' }}" ng-if="model.photos.length > 0"
+         class="contact__avatar-image" -->
     <img src="img/avatar.svg" class="contact__default-image">
   </div>
   <div class="contact__title">{{model.displayName}}</div>
