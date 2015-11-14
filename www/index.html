@@ -27,6 +27,7 @@
   <script src="lib/moment/min/moment.min.js"></script>
   <script src="lib/angular-moment/angular-moment.min.js"></script>
   <script src="js/app.js"></script>
+
   <script src="js/services/apiService.js"></script>
   <script src="js/services/storageService.js"></script>
   <script src="js/services/statusService.js"></script>
@@ -34,29 +35,22 @@
   <script src="js/services/geoLocationService.js"></script>
   <script src="js/services/notificationService.js"></script>
   <script src="js/services/contactDummyPhonesService.js"></script>
+
   <script src="js/filters/phoneFormatter.js"></script>
+
   <script src="js/constants/events.js"></script>
+  <script src="js/constants/geolocation.js"></script>
+  <script src="js/constants/phones.js"></script>
+
   <script src="js/directives/personalStatusControl.js"></script>
   <script src="js/directives/contact.js"></script>
   <script src="js/controllers/splashScreen.js"></script>
   <script src="js/controllers/register.js"></script>
   <script src="js/controllers/main.js"></script>
-
   <script src="js/directives/listDirective.js"></script>
+
 </head>
 <body ng-app="iok">
-<!--
-  The nav bar that will be updated as we navigate between views.
--->
-<!--ion-nav-bar class="bar-stable"-->
-  <!--<ion-nav-back-button>
-  </ion-nav-back-button>-->
-<!--/ion-nav-bar-->
-<!--
-  The views will be rendered in the <ion-nav-view> directive below
-  Templates are in the /templates folder (but you could also
-  have templates inline in this html file if you'd like).
--->
 <ion-nav-view></ion-nav-view>
 </body>
 </html>

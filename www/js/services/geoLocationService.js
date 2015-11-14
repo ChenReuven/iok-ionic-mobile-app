@@ -4,13 +4,25 @@ angular.module('iok')
     function getCurrentLocation() {
       var d = $q.defer();
 
-      var watchOptions = {
+      var options = {
         timeout: 8000,
         enableHighAccuracy: false, // may cause errors if true
         maximumAge: 0
       };
 
-      var watch = $cordovaGeolocation.watchPosition(watchOptions);
+      $cordovaGeolocation
+        .getCurrentPosition(options)
+        .then(function (position) {
+          var lat = position.coords.latitude;
+          var long = position.coords.longitude;
+          console.log('Geo Location Success: ', position);
+          d.resolve(position);
+        }, function (err) {
+          console.error('Geo Location Fauilre: ', err);
+          d.reject(err);
+        });
+
+      /*var watch = $cordovaGeolocation.watchPosition(options);
       watch.then(
         function (position) {
           var lat = position.coords.latitude
@@ -28,17 +40,10 @@ angular.module('iok')
           console.log('Success Finally: ', position);
           d.resolve(position);
           watch.clearWatch();
-        });
+       });*/
 
       return d.promise;
 
-      // OR
-      /* $cordovaGeolocation.clearWatch(watch)
-       .then(function(result) {
-       // success
-       }, function (error) {
-       // error
-       });*/
     }
 
     return {

@@ -1,4 +1,4 @@
-
-angular.module('iok').constant('StatusControlEvents', {
-  HIDE:'status-control.hide'
-});
+angular.module('iok')
+  .constant('StatusControlEvents', {
+    HIDE: 'status-control.hide'
+  });

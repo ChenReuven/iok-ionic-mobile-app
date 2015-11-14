@@ -1,25 +1,22 @@
-function MainCtrl($scope, statusService, contactService, geoLocationService, StatusControlEvents, storageService) {
+function MainCtrl($scope, $q, statusService, contactService, geoLocationService, StatusControlEvents, storageService, GeoLocationConst) {
 
   var vm = this;
-  var PHONE_GEOLOCATION_LAT_KEY = 'user.geolocation-lang';
-  var PHONE_GEOLOCATION_LONG_KEY = 'user.geolocation-long';
+  vm.friendsListInForeground = false;
+  var geoLoactionPromise,
+    contactServicePromise;
 
-  geoLocationService.getCurrentLocation()
-    .then(function (position) {
-      storageService.set(PHONE_GEOLOCATION_LAT_KEY, position.coords.latitude);
-      storageService.set(PHONE_GEOLOCATION_LONG_KEY, position.coords.longitude);
-    });
+  if (!isGeoLocationExist()) {
+    geoLoactionPromise = geoLocationService.getCurrentLocation();
+  }
+  contactSerivcePromise = contactService.getAllContacts();
 
-  this.friendsListInForeground = false;
+  $q.all([geoLoactionPromise, contactServicePromise]).then(function (position, contacts) {
+    storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY, position.coords.latitude);
+    storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY, position.coords.longitude);
 
-  contactService.getAllContacts()
-    .then(function (contacts) {
+    vm.contacts = contacts;
+  });
 
-      vm.contacts = contacts;
-
-    }, function (err) {
-
-    });
 
   $scope.$on(StatusControlEvents.HIDE, function () {
     vm.friendsListInForeground = true;
@@ -37,10 +34,12 @@ function MainCtrl($scope, statusService, contactService, geoLocationService, Sta
     statusService.sendStatus();
   };
 
-  console.log('Main');
+  function isGeoLocationExist() {
+    return storageService.get(GeoLocationConst.PHONE_GEOLOCATION_LAT_KEY) && storageService.set(GeoLocationConst.PHONE_GEOLOCATION_LONG_KEY);
+  }
 
 }
 
-MainCtrl.$inject = ['$scope', 'statusService', 'contactService', 'geoLocationService', 'StatusControlEvents', 'storageService'];
+MainCtrl.$inject = ['$scope', '$q', 'statusService', 'contactService', 'geoLocationService', 'StatusControlEvents', 'storageService', 'GeoLocationConst'];
 
 angular.module('iok').controller('MainCtrl', MainCtrl);

@@ -57,7 +57,8 @@ function StatusService(apiService, storageService, $filter, $q) {
 
   this.createStatusData = function () {
     var position = getGeoLocationFromLocal();
-    var formatPhoneNumber = $filter('phoneFormatter')(storageService.get('user.phone-num'));
+    var formatPhoneNumber = $filter('phoneFormatter')(storageService.get('user.phone-num'))
+    var PUSH_TOKEN = '111-DUMMY';
     return {
       "phoneNumber": formatPhoneNumber,
       "device": "ANDROID",
@@ -69,9 +70,9 @@ function StatusService(apiService, storageService, $filter, $q) {
 
   this.sendStatus = function () {
     var that = this;
-    return this.createNewTocken().then(function () {
+    //return this.createNewTocken().then(function () {
       return apiService.sendStatus(that.createStatusData());
-    })
+    //})
 
   };
 

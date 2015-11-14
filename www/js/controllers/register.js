@@ -1,35 +1,40 @@
-function RegisterCtrl(statusService, storageService, $state, contactService, geoLocationService) {
+function RegisterCtrl(statusService, storageService, $state, contactService, geoLocationService, PhonesConst) {
 
   var vm = this;
-  var PHONE_STORAGE_KEY = 'user.phone-num';
-  var DEFAULT_AREA_CODE = '972';
-  var PHONE_GEOLOCATION_LAT_KEY = 'user.geolocation-lang';
-  var PHONE_GEOLOCATION_LONG_KEY = 'user.geolocation-long';
-
   vm.phonesAreaCode = contactService.getPhonesAreaCode();
-  vm.phoneAreaCode = DEFAULT_AREA_CODE;
-
-
-  geoLocationService.getCurrentLocation()
-    .then(function (position) {
-      storageService.set(PHONE_GEOLOCATION_LAT_KEY, position.coords.latitude);
-      storageService.set(PHONE_GEOLOCATION_LONG_KEY, position.coords.longitude);
-    });
+  vm.phoneAreaCode = PhonesConst.DEFAULT_AREA_CODE;
 
   vm.submitNumber = function () {
-    if (vm.phoneNumber && vm.phoneNumber !== '') {
-      var fullUserNumber = vm.phoneAreaCode + vm.phoneNumber;
-      storageService.set(PHONE_STORAGE_KEY, fullUserNumber);
-      statusService.sendStatus();
-
-      $state.go('main');
-
+    if (isValidPhoneNumber(vm.phoneNumber)) {
+      var phoneNumberWithAreaCode = createPhoneNumber(vm.phoneAreaCode, vm.phoneNumber);
+      persistUserPhoneNumberInLocalStorage(phoneNumberWithAreaCode);
+      sendStatus();
     }
+  }
 
+  function createPhoneNumber(areaCode, phoneNumber) {
+    return areaCode + phoneNumber;
+  }
+
+  function isValidPhoneNumber(phoneNumber) {
+    return phoneNumber && phoneNumber !== '';
+  }
+
+  function persistUserPhoneNumberInLocalStorage(phoneNumber) {
+    storageService.set(PhonesConst.USER_PHONE_NUMBER, phoneNumber);
+  }
+
+  function sendStatus() {
+    statusService.sendStatus()
+      .then(function () {
+        $state.go('main');
+      }, function (err) {
+        console.error('Register--Error: Send Status: ' + error);
+      });
   }
 
 }
 
-RegisterCtrl.$inject = ['statusService', 'storageService', '$state', 'contactService', 'geoLocationService'];
+RegisterCtrl.$inject = ['statusService', 'storageService', '$state', 'contactService', 'geoLocationService', 'PhonesConst'];
 
 angular.module('iok').controller('RegisterCtrl', RegisterCtrl);
